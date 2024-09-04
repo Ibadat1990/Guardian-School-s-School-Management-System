@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', Popins, Lato, sans-serif;
+}
+
+:root {
+    --primary-color: #FFFFFF;
+    --light-secondary-color: #daf6ec;
+    --secondary-color: #83E1BF;
+    --tertiary-color: #3a9095;
+    --quaternary-color: #165453;
+    --warning-color: #ff0000ef;
+}

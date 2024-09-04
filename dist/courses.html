@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html id="dark-main" lang="en" class="">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+
+  <script src="../node_modules/preline/dist/preline.js"></script>
+  <script src="../node_modules/vue/dist/vue.global.js"></script>
+  <script src="components.js" type="module"></script>
+  <script src="common.js"></script>
+  <script src="courses.js"></script>
+</head>
+
+
+
+<body class="relative h-dvh dark:bg-gray-900" id="app">
+
+  <navbar-component></navbar-component>
+
+  <!-- Table Section -->
+  <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+
+    <main-header-component></main-header-component>
+
+    <!-- Card -->
+    <div class="flex flex-col">
+      <div class="-m-1.5 overflow-x-auto">
+        <div class="p-1.5 min-w-full inline-block align-middle">
+          <div
+            class="bg-white border border-gray-200 rounded-xl shadow-sm overflow-hidden dark:bg-neutral-900 dark:border-neutral-700">
+
+            <!-- Header -->
+
+            <div
+              class="px-6 py-4 grid gap-3 md:flex md:justify-between md:items-center border-b border-gray-200 dark:border-neutral-700">
+              <div>
+                <h3 class="text-xl sm:text-2xl font-semibold text-gray-800 dark:text-neutral-200">
+                  Courses' List
+                </h3>
+              </div>
+              <div>
+                <div class="inline-flex gap-x-2">
+
+                  <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-[--quaternary-color]
+                  hover:border-[--quaternary-color] bg-[--secondary-color] text-gray-900 hover:bg-[--tertiary-color] hover:text-white
+                  focus:outline-none focus:bg-[--tertiary-color] focus:text-white disabled:opacity-50 disabled:pointer-events-none
+                  transition-all duration-200 ease-in-out" aria-haspopup="dialog" aria-expanded="false"
+                    aria-controls="modal-new-course" data-hs-overlay="#modal-new-course">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                      stroke="currentColor" class="size-6">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                    </svg>
+                    Add New Course
+                  </button>
+
+                  <!-- New Course Modal Start -->
+
+                  <div id="modal-new-course"
+                    class="hs-overlay hidden size-full fixed top-0 start-0 z-[80] overflow-x-hidden overflow-y-auto pointer-events-none"
+                    role="dialog" tabindex="-1" aria-labelledby="modal-new-course-label">
+                    <div
+                      class="hs-overlay-animation-target hs-overlay-open:scale-100 hs-overlay-open:opacity-100 scale-95 opacity-0 ease-in-out transition-all duration-200 sm:max-w-lg sm:w-full m-3 sm:mx-auto min-h-[calc(100%-3.5rem)] flex items-center">
+                      <div
+                        class="w-full flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto dark:bg-neutral-800 dark:border-neutral-700 dark:shadow-neutral-700/70">
+                        <div class="flex justify-between items-center py-3 px-4 border-b dark:border-neutral-700">
+                          <h3 id="modal-new-course-label" class="font-bold text-gray-800 dark:text-white">
+
+                            New Course
+                          </h3>
+                          <button type="button"
+                            class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-none focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+                            aria-label="Close" data-hs-overlay="#modal-new-course">
+                            <span class="sr-only">Close</span>
+                            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                              viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                              stroke-linecap="round" stroke-linejoin="round">
+                              <path d="M18 6 6 18"></path>
+                              <path d="m6 6 12 12"></path>
+                            </svg>
+                          </button>
+                        </div>
+
+                        <form class="p-4">
+                          <!-- Section -->
+                          <div
+                            class="py-6 first:pt-0 last:pb-0 border-t first:border-transparent border-gray-200 dark:border-neutral-700 dark:first:border-transparent">
+                            <div class="inline-block text-sm font-medium dark:text-white">
+                              Course Information
+                            </div>
+
+                            <div class="mt-2 space-y-3">
+                              <input id="course-code" type="text"
+                                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                placeholder="Course Code">
+                              <input id="course-name" type="text"
+                                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                placeholder="Course Name">
+                              <textarea id="course-description"
+                                class="py-2 px-3 pe-11 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-emerald-500 focus:ring-emerald-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                                placeholder="Description..."></textarea>
+                            </div>
+                          </div>
+                          <!-- End Section -->
+                        </form>
+
+                        <div class="flex justify-end items-center gap-x-2 py-3 px-4 border-t dark:border-neutral-700">
+                          <button id="new-course-close-button" type="button"
+                            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-[--secondary-color] bg-[--light-secondary-color] text-gray-800 shadow-sm hover:bg-[--secondary-color] focus:outline-none focus:bg-[--secondary-color] disabled:opacity-50 disabled:pointer-events-none  transition-all duration-200 ease-in-out"
+                            data-hs-overlay="#modal-new-course">
+                            Close
+                          </button>
+                          <button id="new-course-save-button" type="button"
+                            class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-[--quaternary-color] bg-[--secondary-color] text-gray-900 hover:text-white hover:bg-[--tertiary-color] focus:outline-none focus:bg-[--tertiary-color] disabled:opacity-50 disabled:pointer-events-none transition-all duration-200 ease-in-out"
+                            data-hs-overlay="#modal-new-course">
+                            Save
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- New Course Modal End -->
+
+                </div>
+              </div>
+            </div>
+            <!-- End Header -->
+
+            <!-- Table -->
+            <table class="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+              <thead class="bg-gray-50 dark:bg-neutral-800">
+                <tr>
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <h4
+                      class="group inline-flex items-center gap-x-0.5 text-xs font-semibold uppercase text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                      href="#">
+                      Course Code
+                    </h4>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <a class="group inline-flex items-center gap-x-2 text-xs font-semibold uppercase text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                      href="#">
+                      Course Name
+                    </a>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <a class="group inline-flex items-center gap-x-2 text-xs font-semibold uppercase text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                      href="#">
+                      Enr. Students
+                    </a>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <a class="group inline-flex items-center gap-x-2 text-xs font-semibold uppercase text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                      href="#">
+                      Description
+                    </a>
+                  </th>
+
+                  <th scope="col" class="px-6 py-3 text-start">
+                    <a class="group inline-flex items-center gap-x-2 text-xs font-semibold uppercase text-gray-800 hover:text-gray-500 focus:outline-none focus:text-gray-500 dark:text-neutral-200 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
+                      href="#">
+                      Actions
+                    </a>
+                  </th>
+                </tr>
+              </thead>
+
+              <tbody id="courses-table" class="divide-y divide-gray-200 dark:divide-neutral-700">
+              </tbody>
+            </table>
+            <!-- End Table -->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- End Card -->
+  </div>
+  <!-- End Table Section -->
+
+
+</body>
+
+</html>
